@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <script type="text/javascript" src="/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts-en.common.js"></script>
+</head>
+
+<body>
+    <div id="main" style=" width:1000px;height: 500px;">
+dididi
+    </div>
+    <!-- <script>
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+            title: {
+                // text: '用电量统计',
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['起始电能值', '结束电能值', '产量', '用电量', '单位产量能耗']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    dataView: {
+                        show: true,
+                        readOnly: false
+                    },
+                    magicType: {
+                        show: true,
+                        type: ['line', 'bar']
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            calculable: true,
+            xAxis: [{
+                type: 'category',
+                data: []
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '用电量',
+                axisLabel: {
+                    formatter: '{value} '
+                }
+            }, {
+                type: 'value',
+                name: '单位产量能耗',
+                axisLabel: {
+                    formatter: '{value} '
+                }
+            }],
+            series: [{
+                name: '起始电能值',
+                type: 'bar',
+                data: [],
+                markPoint: {
+                    data: [{
+                        type: 'max',
+                        name: '最大值'
+                    }, {
+                        type: 'min',
+                        name: '最小值'
+                    }]
+                },
+            }, {
+                name: '结束电能值',
+                type: 'bar',
+                data: [],
+
+            }, {
+                name: '产量',
+                type: 'bar',
+                data: [],
+            }, {
+                name: '用电量',
+                type: 'bar',
+                data: [],
+            }, {
+                name: '单位产量能耗',
+                type: 'line',
+                data: [],
+                yAxisIndex: 1,
+                markLine: {
+                    data: [{
+                        type: 'average',
+                        name: '平均值'
+                    }]
+                }
+            }]
+        };
+        myChart.setOption(option);
+
+        var names = [];
+        var starts = [];
+        var ends = [];
+        var sums = [];
+        var amounts = [];
+        var units = [];
+        $.ajax({
+            type: 'get',
+            async: 'true',
+            url: 'http://localhost:3005/',
+            data: {},
+            dataType: 'json',
+            success: function(result) {
+                for (var i = 0; i < result.length; i++) {
+                    names.push(result[i].name);
+                    starts.push(result[i].start);
+                    ends.push(result[i].end);
+                    sums.push(result[i].sum);
+                    amounts.push((result[i].end - result[i].start).toFixed(2))
+                    units.push(((result[i].end - result[i].start) / result[i].sum).toFixed(2))
+                }
+                // console.log(amounts);
+                // console.log(units);
+                myChart.setOption({
+                    xAxis: {
+                        data: names
+                    },
+                    series: [{
+                        name: '起始电能值',
+                        data: starts
+                    }, {
+                        name: '结束电能值',
+                        data: ends
+                    }, {
+                        name: '产量',
+                        data: sums
+                    }, {
+                        name: '用电量',
+                        data: amounts
+                    }, {
+                        name: '单位产量能耗',
+                        data: units
+                    }]
+                });
+
+            },
+            error: function() {
+                alert('图表加载失败')
+            }
+
+        })
+    </script> -->
+</body>
+
+</html>
